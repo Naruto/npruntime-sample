@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+
+    <object id='plugin' type="application/x-test-plugin" height=0 width=0>
+    </object>
+    <script>
+      var npapi_obj = null;
+      function invoke(pluginId) {
+      npapi_obj = document.getElementById(pluginId);
+      if(npapi_obj.version == undefined) {
+        alert("can't load method");
+      } else {
+        alert(npapi_obj.version());
+      }
+      }
+    </script>
+  </head>
+  <body onload="invoke('plugin');">
+  </body>
+</html>
+
